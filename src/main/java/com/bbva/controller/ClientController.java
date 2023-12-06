@@ -43,7 +43,7 @@ public class ClientController {
 
     @PutMapping
     public ResponseEntity<ClientDTO> update(@Valid @RequestBody ClientDTO clientDTO){
-        Client client = serviceClient.save(clientMapper.mapToClient(clientDTO));
+        Client client = serviceClient.saveDTO(clientDTO);
         ClientDTO obj = clientMapper.mapToClientDto(client);
         return new ResponseEntity<>(obj, HttpStatus.CREATED);
     }
